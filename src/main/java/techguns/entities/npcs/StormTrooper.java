@@ -1,5 +1,6 @@
 package techguns.entities.npcs;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -21,7 +22,9 @@ import techguns.items.armors.GenericArmorMultiCamo;
 public class StormTrooper extends GenericNPCGearSpecificStats {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/stormtrooper");
-	
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public StormTrooper(World world) {
 		super(world);
 	}
@@ -34,6 +37,10 @@ public class StormTrooper extends GenericNPCGearSpecificStats {
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(96.0D);
 		this.isImmuneToFire = true;
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		StormTrooper.weapons = weapons;
 	}
 
 	@Override
@@ -52,21 +59,17 @@ public class StormTrooper extends GenericNPCGearSpecificStats {
 		this.setItemStackToSlot(EntityEquipmentSlot.FEET, GenericArmorMultiCamo.getNewWithCamo(
 				TGArmors.t3_miner_Boots,camo));
 		// Weapons
-		
+
 		Random r = new Random();
-		Item weapon = null;
-		switch (r.nextInt(3)) {
-			case 0:
-				weapon = TGuns.m4_infiltrator;
-				break;
-			case 1:
-				weapon = TGuns.as50;
-				break;
-			default:
-				weapon = TGuns.aug;
-				break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 	
 	@Override

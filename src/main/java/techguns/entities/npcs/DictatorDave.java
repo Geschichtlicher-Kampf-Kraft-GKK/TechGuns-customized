@@ -15,10 +15,15 @@ import techguns.TGArmors;
 import techguns.TGuns;
 import techguns.Techguns;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class DictatorDave extends GenericNPC {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/dictatordave");
-	
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public DictatorDave(World world) {
 		super(world);
 		setTGArmorStats(15.0f, 0f);
@@ -35,6 +40,10 @@ public class DictatorDave extends GenericNPC {
 		this.experienceValue = 35;
 	}
 
+	public static void changeWeapon(ArrayList<Item> weapons){
+		DictatorDave.weapons = weapons;
+	}
+
 	@Override
 	protected void addRandomArmor(int difficulty) {
 
@@ -45,9 +54,16 @@ public class DictatorDave extends GenericNPC {
 			    this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(TGArmors.t1_combat_Boots));
 
 				// Weapons
-				Item weapon = TGuns.goldenrevolver;
-				
-				if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		Random r = new Random();
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
+		}
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 	
 	@Override

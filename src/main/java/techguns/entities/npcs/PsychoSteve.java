@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -15,10 +16,15 @@ import techguns.TGuns;
 import techguns.Techguns;
 import techguns.items.armors.GenericArmorMultiCamo;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class PsychoSteve extends GenericNPC {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/psychosteve");
-	
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public PsychoSteve(World world) {
 		super(world);
 		setTGArmorStats(5.0f, 0f);
@@ -38,8 +44,21 @@ public class PsychoSteve extends GenericNPC {
 	protected void addRandomArmor(int difficulty) {
 
 		// Armors
-		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(TGuns.chainsaw));
+		Random r = new Random();
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
+		}
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		PsychoSteve.weapons = weapons;
 	}
 	
 	@Override

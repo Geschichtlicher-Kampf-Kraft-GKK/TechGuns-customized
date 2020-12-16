@@ -1,5 +1,6 @@
 package techguns.entities.npcs;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -20,10 +21,16 @@ public class SuperMutantBasic extends GenericNPC {
 	
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/supermutantbasic");
 
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public SuperMutantBasic(World world) {
 		super(world);
 		this.setSize(getMutantWidth(), 2F*this.getModelScale());
 		setTGArmorStats(5.0f, 0f);
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		SuperMutantBasic.weapons = weapons;
 	}
 	
 	public int gettype() {
@@ -102,16 +109,15 @@ public class SuperMutantBasic extends GenericNPC {
 
 			// Weapons
 		Random r = new Random();
-		Item weapon = null;
-		switch (r.nextInt(2)) {
-			case 0:
-				weapon = TGuns.lmg;
-				break;
-			default:
-				weapon = TGuns.rocketlauncher;
-				break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 
 	@Override

@@ -8,13 +8,20 @@ import net.minecraft.world.World;
 import techguns.TGuns;
 import techguns.damagesystem.TGDamageSource;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class SuperMutantElite extends SuperMutantBasic {
 
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public SuperMutantElite(World world) {
 		super(world);
 		setTGArmorStats(15.0f, 1f);
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		SuperMutantElite.weapons = weapons;
 	}
 	
 	public int gettype() {
@@ -87,15 +94,14 @@ public class SuperMutantElite extends SuperMutantBasic {
 
 		// Weapons
 		Random r = new Random();
-		Item weapon = null;
-		switch (r.nextInt(2)) {
-			case 0:
-				weapon = TGuns.grimreaper;
-				break;
-			default:
-				weapon = TGuns.minigun;
-				break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 }

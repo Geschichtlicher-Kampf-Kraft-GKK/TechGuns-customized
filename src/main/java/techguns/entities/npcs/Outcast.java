@@ -1,5 +1,6 @@
 package techguns.entities.npcs;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,9 @@ import techguns.items.armors.GenericArmorMultiCamo;
 public class Outcast extends GenericNPCGearSpecificStats {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/outcast");
-	
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public Outcast(World world) {
 		super(world);
 	}
@@ -28,6 +31,10 @@ public class Outcast extends GenericNPCGearSpecificStats {
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30);
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(64.0D);
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		Outcast.weapons = weapons;
 	}
 
 	@Override
@@ -48,22 +55,15 @@ public class Outcast extends GenericNPCGearSpecificStats {
 
 		// Weapons
 
-		Item weapon = null;
-		switch (r.nextInt(4)) {
-		case 0:
-			weapon = TGuns.lasergun;
-			break;
-		case 1:
-			weapon = TGuns.teslagun;
-			break;
-		case 2:
-			weapon = TGuns.sonicshotgun;
-			break;
-		default:
-			weapon = TGuns.biogun;
-			break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 	
 	

@@ -1,5 +1,6 @@
 package techguns.entities.npcs;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -48,9 +49,7 @@ import techguns.entities.ai.EntityAIRangedAttack;
 import techguns.items.guns.GenericGun;
 
 public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechgunsShooter, INpcTGDamageSystem, ITGNpcTeam, ITGSpawnerNPC{
-	 
-		//private GenericGun gun = this.pickRandomGun();
-		
+
 	protected boolean hasAimedBowAnim;
 	    
 	    private static final DataParameter<Boolean> SWINGING_ARMS = EntityDataManager.<Boolean>createKey(GenericNPC.class, DataSerializers.BOOLEAN);

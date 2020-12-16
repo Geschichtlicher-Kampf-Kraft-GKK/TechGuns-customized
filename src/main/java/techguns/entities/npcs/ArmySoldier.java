@@ -1,5 +1,6 @@
 package techguns.entities.npcs;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -35,6 +36,8 @@ public class ArmySoldier extends GenericNPC {
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(96.0D);
 	}
 
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	@Override
 	protected void addRandomArmor(int difficulty) {
 
@@ -46,28 +49,19 @@ public class ArmySoldier extends GenericNPC {
 
 		// Weapons
 		Random r = new Random();
-		Item weapon = null;
-		switch (r.nextInt(6)) {
-			case 0:
-				weapon = TGuns.m4;
-				break;
-			case 1:
-				weapon = TGuns.scar;
-				break;
-			case 2:
-				weapon = TGuns.vector;
-				break;
-			case 3:
-				weapon = TGuns.boltaction;
-				break;
-			case 4:
-				weapon = TGuns.grenadelauncher;
-				break;
-			default:
-				weapon = TGuns.rocketlauncher;
-				break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		Bandit.weapons = weapons;
 	}
 	
 	@Override

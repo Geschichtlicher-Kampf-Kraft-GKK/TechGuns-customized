@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="882376d5-e7d0-4815-9a3f-f60b3b47f0af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/ArmySoldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/ArmySoldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/Bandit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/Commando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/Commando.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/CyberDemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/CyberDemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/DictatorDave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/DictatorDave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/GenericNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/GenericNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/Outcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/Outcast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/PsychoSteve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/PsychoSteve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/StormTrooper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/StormTrooper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/SuperMutantBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/SuperMutantBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/SuperMutantElite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/SuperMutantElite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/SuperMutantHeavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/entities/npcs/SuperMutantHeavy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/techguns/plugins/crafttweaker/MobTweaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/plugins/crafttweaker/MobTweaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

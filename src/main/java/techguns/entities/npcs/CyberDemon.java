@@ -13,10 +13,15 @@ import net.minecraft.world.World;
 import techguns.TGuns;
 import techguns.Techguns;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class CyberDemon extends GenericNPCUndead {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/cyberdemon");
-	
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public CyberDemon(World world) {
 		super(world);
 		setTGArmorStats(10.0f, 0f);
@@ -34,14 +39,25 @@ public class CyberDemon extends GenericNPCUndead {
 		this.hasAimedBowAnim = false;
 	}
 
+	public static void changeWeapon(ArrayList<Item> weapons){
+		CyberDemon.weapons = weapons;
+	}
+
 	@Override
 	protected void addRandomArmor(int difficulty) {
 
 		// No Armor
 		// Weapons
-		Item weapon = TGuns.netherblaster;
-		
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		Random r = new Random();
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
+		}
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 	
 	@Override

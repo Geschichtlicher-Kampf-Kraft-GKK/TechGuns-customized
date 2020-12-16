@@ -15,9 +15,14 @@ import techguns.TGArmors;
 import techguns.TGuns;
 import techguns.Techguns;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Commando extends GenericNPC {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/commando");
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
 	
 	public Commando(World world) {
 		super(world);
@@ -44,9 +49,20 @@ public class Commando extends GenericNPC {
 	    this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(TGArmors.t2_commando_Boots));
 
 		// Weapons
-		Item weapon = TGuns.as50;
-		
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		Random r = new Random();
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.ak47);
+			weapons.add(TGuns.pistol);
+			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.boltaction);
+			weapons.add(TGuns.revolver);
+			weapons.add(TGuns.thompson);
+		}
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		Commando.weapons = weapons;
 	}
 	
 	@Override

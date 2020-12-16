@@ -37,7 +37,6 @@ public class MobTweaker {
             case "supermutantelite":
                 SuperMutantElite.changeWeapon(weapons);
             default:
-                return;
         }
     }
 
@@ -45,27 +44,38 @@ public class MobTweaker {
     public static void setData(String entity, int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
         switch (entity){
             case "bandit":
-                Bandit.changeWeapon(weapons);
+                Bandit.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "armysoldier":
-                ArmySoldier.changeWeapon(weapons);
+                ArmySoldier.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "cyberdemon":
-                CyberDemon.changeWeapon(weapons);
+                CyberDemon.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "dictatordave":
-                DictatorDave.changeWeapon(weapons);
+                DictatorDave.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "outcast":
-                Outcast.changeWeapon(weapons);
+                Outcast.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "psychosteve":
-                PsychoSteve.changeWeapon(weapons);
+                PsychoSteve.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "stormtrooper":
-                StormTrooper.changeWeapon(weapons);
+                StormTrooper.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "supermutantbasic":
-                SuperMutantBasic.changeWeapon(weapons);
+                SuperMutantBasic.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
+            case "attackhelicopter":
+                AttackHelicopter.changeData(healthy, range, 8.0D, armor, ifFireProof);
             case "supermutantheavy":
-                SuperMutantHeavy.changeWeapon(weapons);
+                SuperMutantHeavy.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             case "supermutantelite":
-                SuperMutantElite.changeWeapon(weapons);
+                SuperMutantElite.changeData(healthy, damage, range, speed, armor, ifFireProof);
+                break;
             default:
-                return;
         }
     }
 

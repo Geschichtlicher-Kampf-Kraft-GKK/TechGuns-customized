@@ -1,5 +1,6 @@
 package techguns.entities.npcs;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -20,10 +21,16 @@ public class SuperMutantBasic extends GenericNPC {
 	
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/supermutantbasic");
 
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public SuperMutantBasic(World world) {
 		super(world);
 		this.setSize(getMutantWidth(), 2F*this.getModelScale());
 		setTGArmorStats(5.0f, 0f);
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		SuperMutantBasic.weapons = weapons;
 	}
 	
 	public int gettype() {
@@ -87,12 +94,28 @@ public class SuperMutantBasic extends GenericNPC {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(SuperMutantBasic.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(SuperMutantBasic.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(SuperMutantBasic.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(SuperMutantBasic.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(SuperMutantBasic.armor);
+		this.isImmuneToFire = SuperMutantBasic.ifFireProof;
+	}
 
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.05D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(2000);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(5D);
+	static int healthy = 512;
+	static int damage = 1;
+	static double range = 64.0D;
+	static double speed = 0.05D;
+	static double armor = 8.0D;
+	static boolean ifFireProof = true;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)SuperMutantBasic.healthy = healthy;
+		if(damage > 0)SuperMutantBasic.damage = damage;
+		if(range > 0)SuperMutantBasic.range = range;
+		if(speed > 0)SuperMutantBasic.speed = speed;
+		if(armor > 0)SuperMutantBasic.armor = armor;
+		SuperMutantBasic.ifFireProof = ifFireProof;
 	}
 
 	
@@ -102,16 +125,11 @@ public class SuperMutantBasic extends GenericNPC {
 
 			// Weapons
 		Random r = new Random();
-		Item weapon = null;
-		switch (r.nextInt(2)) {
-			case 0:
-				weapon = TGuns.lmg;
-				break;
-			default:
-				weapon = TGuns.rocketlauncher;
-				break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.lmg);
+			weapons.add(TGuns.rocketlauncher);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 
 	@Override

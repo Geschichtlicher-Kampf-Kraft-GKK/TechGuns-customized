@@ -15,9 +15,14 @@ import techguns.TGArmors;
 import techguns.TGuns;
 import techguns.Techguns;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Commando extends GenericNPC {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/commando");
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
 	
 	public Commando(World world) {
 		super(world);
@@ -27,11 +32,28 @@ public class Commando extends GenericNPC {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(128.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(3D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(Commando.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(Commando.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(Commando.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(Commando.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(Commando.armor);
+		this.isImmuneToFire = Commando.ifFireProof;
+	}
+
+	static int healthy = 40;
+	static int damage = 10;
+	static double range = 128.0D;
+	static double speed = 0.3D;
+	static double armor = 0.0D;
+	static boolean ifFireProof = false;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)Commando.healthy = healthy;
+		if(damage > 0)Commando.damage = damage;
+		if(range > 0)Commando.range = range;
+		if(speed > 0)Commando.speed = speed;
+		if(armor > 0)Commando.armor = armor;
+		Commando.ifFireProof = ifFireProof;
 	}
 
 	@Override
@@ -44,9 +66,15 @@ public class Commando extends GenericNPC {
 	    this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(TGArmors.t2_commando_Boots));
 
 		// Weapons
-		Item weapon = TGuns.as50;
-		
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		Random r = new Random();
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.as50);
+		}
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		Commando.weapons = weapons;
 	}
 	
 	@Override

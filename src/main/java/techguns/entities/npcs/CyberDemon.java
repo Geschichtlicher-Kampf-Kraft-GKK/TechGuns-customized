@@ -30,13 +30,28 @@ public class CyberDemon extends GenericNPCUndead {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(500);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(1D);
-		this.isImmuneToFire = true;
-		this.hasAimedBowAnim = false;
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(CyberDemon.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(CyberDemon.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(CyberDemon.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(CyberDemon.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(CyberDemon.armor);
+		this.isImmuneToFire = CyberDemon.ifFireProof;
+	}
+
+	static int healthy = 200;
+	static int damage = 1;
+	static double range = 32.0D;
+	static double speed = 0.15D;
+	static double armor = 5.0D;
+	static boolean ifFireProof = true;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)CyberDemon.healthy = healthy;
+		if(damage > 0)CyberDemon.damage = damage;
+		if(range > 0)CyberDemon.range = range;
+		if(speed > 0)CyberDemon.speed = speed;
+		if(armor > 0)CyberDemon.armor = armor;
+		CyberDemon.ifFireProof = ifFireProof;
 	}
 
 	public static void changeWeapon(ArrayList<Item> weapons){
@@ -50,12 +65,7 @@ public class CyberDemon extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		if(weapons.isEmpty()){
-			weapons.add(TGuns.ak47);
-			weapons.add(TGuns.pistol);
-			weapons.add(TGuns.combatshotgun);
-			weapons.add(TGuns.boltaction);
-			weapons.add(TGuns.revolver);
-			weapons.add(TGuns.thompson);
+			weapons.add(TGuns.lmg);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}

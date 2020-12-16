@@ -32,11 +32,28 @@ public class StormTrooper extends GenericNPCGearSpecificStats {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.40D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(96.0D);
-		this.isImmuneToFire = true;
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(StormTrooper.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(StormTrooper.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(StormTrooper.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(StormTrooper.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(StormTrooper.armor);
+		this.isImmuneToFire = StormTrooper.ifFireProof;
+	}
+
+	static int healthy = 40;
+	static int damage = 1;
+	static double range = 96.0D;
+	static double speed = 0.4D;
+	static double armor = 3.0D;
+	static boolean ifFireProof = true;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)StormTrooper.healthy = healthy;
+		if(damage > 0)StormTrooper.damage = damage;
+		if(range > 0)StormTrooper.range = range;
+		if(speed > 0)StormTrooper.speed = speed;
+		if(armor > 0)StormTrooper.armor = armor;
+		StormTrooper.ifFireProof = ifFireProof;
 	}
 
 	public static void changeWeapon(ArrayList<Item> weapons){
@@ -62,12 +79,9 @@ public class StormTrooper extends GenericNPCGearSpecificStats {
 
 		Random r = new Random();
 		if(weapons.isEmpty()){
-			weapons.add(TGuns.ak47);
-			weapons.add(TGuns.pistol);
-			weapons.add(TGuns.combatshotgun);
-			weapons.add(TGuns.boltaction);
-			weapons.add(TGuns.revolver);
-			weapons.add(TGuns.thompson);
+			weapons.add(TGuns.scar);
+			weapons.add(TGuns.m4_infiltrator);
+			weapons.add(TGuns.rocketlauncher);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}

@@ -8,13 +8,20 @@ import net.minecraft.world.World;
 import techguns.TGuns;
 import techguns.damagesystem.TGDamageSource;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class SuperMutantHeavy extends SuperMutantBasic {
 
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public SuperMutantHeavy(World world) {
 		super(world);
 		setTGArmorStats(10.0f, 0);
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		SuperMutantHeavy.weapons = weapons;
 	}
 	
 	public int gettype() {
@@ -74,12 +81,28 @@ public class SuperMutantHeavy extends SuperMutantBasic {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(SuperMutantHeavy.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(SuperMutantHeavy.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(SuperMutantHeavy.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(SuperMutantHeavy.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(SuperMutantHeavy.armor);
+		this.isImmuneToFire = SuperMutantHeavy.ifFireProof;
+	}
 
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.05D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(6000);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(5D);
+	static int healthy = 1024;
+	static int damage = 1;
+	static double range = 64.0D;
+	static double speed = 0.1D;
+	static double armor = 8.0D;
+	static boolean ifFireProof = true;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)SuperMutantHeavy.healthy = healthy;
+		if(damage > 0)SuperMutantHeavy.damage = damage;
+		if(range > 0)SuperMutantHeavy.range = range;
+		if(speed > 0)SuperMutantHeavy.speed = speed;
+		if(armor > 0)SuperMutantHeavy.armor = armor;
+		SuperMutantHeavy.ifFireProof = ifFireProof;
 	}
 
 	@Override
@@ -87,15 +110,10 @@ public class SuperMutantHeavy extends SuperMutantBasic {
 
 		// Weapons
 		Random r = new Random();
-		Item weapon = null;
-		switch (r.nextInt(2)) {
-			case 0:
-				weapon = TGuns.nucleardeathray;
-				break;
-			default:
-				weapon = TGuns.minigun;
-				break;
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.minigun);
+			weapons.add(TGuns.grimreaper);
 		}
-		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 }

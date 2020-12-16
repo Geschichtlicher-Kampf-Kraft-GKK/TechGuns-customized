@@ -33,11 +33,28 @@ public class PsychoSteve extends GenericNPC {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.70D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
-		this.isImmuneToFire = true;
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(PsychoSteve.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(PsychoSteve.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(PsychoSteve.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(PsychoSteve.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(PsychoSteve.armor);
+		this.isImmuneToFire = PsychoSteve.ifFireProof;
+	}
+
+	static int healthy = 10;
+	static int damage = 1;
+	static double range = 32.0D;
+	static double speed = 0.6D;
+	static double armor = 0.0D;
+	static boolean ifFireProof = true;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)PsychoSteve.healthy = healthy;
+		if(damage > 0)PsychoSteve.damage = damage;
+		if(range > 0)PsychoSteve.range = range;
+		if(speed > 0)PsychoSteve.speed = speed;
+		if(armor > 0)PsychoSteve.armor = armor;
+		PsychoSteve.ifFireProof = ifFireProof;
 	}
 
 	@Override
@@ -46,12 +63,7 @@ public class PsychoSteve extends GenericNPC {
 		// Armors
 		Random r = new Random();
 		if(weapons.isEmpty()){
-			weapons.add(TGuns.ak47);
-			weapons.add(TGuns.pistol);
-			weapons.add(TGuns.combatshotgun);
-			weapons.add(TGuns.boltaction);
-			weapons.add(TGuns.revolver);
-			weapons.add(TGuns.thompson);
+			weapons.add(TGuns.chainsaw);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 

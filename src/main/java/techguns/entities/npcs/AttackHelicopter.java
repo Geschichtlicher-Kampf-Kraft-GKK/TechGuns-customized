@@ -102,13 +102,28 @@ public class AttackHelicopter extends GenericFlyingMob
         this.dataManager.register(ATTACKING, Boolean.valueOf(false));
     }
 
-    protected void applyEntityAttributes()
-    {
+    @Override
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(256.0D);
-       	this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(32.0);
-       	this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(10);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(AttackHelicopter.healthy);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(AttackHelicopter.range);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(AttackHelicopter.armor_uni);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(AttackHelicopter.armor);
+        this.isImmuneToFire = AttackHelicopter.ifFireProof;
+    }
+
+    static double armor_uni = 8.0D;
+    static int healthy = 400;
+    static double range = 256.0D;
+    static double armor = 8.0D;
+    static boolean ifFireProof = true;
+
+    public static void changeData(int healthy, double range, double armor_uni, double armor, boolean ifFireProof){
+        if(healthy > 0)AttackHelicopter.healthy = healthy;
+        if(armor_uni > 0)AttackHelicopter.armor_uni = armor_uni;
+        if(range > 0)AttackHelicopter.range = range;
+        if(armor > 0)AttackHelicopter.armor = armor;
+        AttackHelicopter.ifFireProof = ifFireProof;
     }
 
     public SoundCategory getSoundCategory()

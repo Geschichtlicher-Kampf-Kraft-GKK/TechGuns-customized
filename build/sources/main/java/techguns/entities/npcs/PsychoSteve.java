@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -15,10 +16,15 @@ import techguns.TGuns;
 import techguns.Techguns;
 import techguns.items.armors.GenericArmorMultiCamo;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class PsychoSteve extends GenericNPC {
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/psychosteve");
-	
+
+	private static ArrayList<Item> weapons = new ArrayList<>();
+
 	public PsychoSteve(World world) {
 		super(world);
 		setTGArmorStats(5.0f, 0f);
@@ -27,19 +33,44 @@ public class PsychoSteve extends GenericNPC {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.70D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
-		this.isImmuneToFire = true;
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(PsychoSteve.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(PsychoSteve.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(PsychoSteve.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(PsychoSteve.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(PsychoSteve.armor);
+		this.isImmuneToFire = PsychoSteve.ifFireProof;
+	}
+
+	static int healthy = 10;
+	static int damage = 1;
+	static double range = 32.0D;
+	static double speed = 0.6D;
+	static double armor = 0.0D;
+	static boolean ifFireProof = true;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)PsychoSteve.healthy = healthy;
+		if(damage > 0)PsychoSteve.damage = damage;
+		if(range > 0)PsychoSteve.range = range;
+		if(speed > 0)PsychoSteve.speed = speed;
+		if(armor > 0)PsychoSteve.armor = armor;
+		PsychoSteve.ifFireProof = ifFireProof;
 	}
 
 	@Override
 	protected void addRandomArmor(int difficulty) {
 
 		// Armors
-		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(TGuns.chainsaw));
+		Random r = new Random();
+		if(weapons.isEmpty()){
+			weapons.add(TGuns.chainsaw);
+		}
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 
+	}
+
+	public static void changeWeapon(ArrayList<Item> weapons){
+		PsychoSteve.weapons = weapons;
 	}
 	
 	@Override

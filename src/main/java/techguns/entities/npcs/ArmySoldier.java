@@ -30,10 +30,28 @@ public class ArmySoldier extends GenericNPC {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(96.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(ArmySoldier.speed);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ArmySoldier.healthy);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ArmySoldier.damage);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(ArmySoldier.range);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(ArmySoldier.armor);
+		this.isImmuneToFire = ArmySoldier.ifFireProof;
+	}
+
+	static int healthy = 30;
+	static int damage = 1;
+	static double range = 64.0D;
+	static double speed = 0.35D;
+	static double armor = 0.0D;
+	static boolean ifFireProof = false;
+
+	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
+		if(healthy > 0)ArmySoldier.healthy = healthy;
+		if(damage > 0)ArmySoldier.damage = damage;
+		if(range > 0)ArmySoldier.range = range;
+		if(speed > 0)ArmySoldier.speed = speed;
+		if(armor > 0)ArmySoldier.armor = armor;
+		ArmySoldier.ifFireProof = ifFireProof;
 	}
 
 	private static ArrayList<Item> weapons = new ArrayList<>();
@@ -50,18 +68,14 @@ public class ArmySoldier extends GenericNPC {
 		// Weapons
 		Random r = new Random();
 		if(weapons.isEmpty()){
-			weapons.add(TGuns.ak47);
-			weapons.add(TGuns.pistol);
-			weapons.add(TGuns.combatshotgun);
+			weapons.add(TGuns.m4);
 			weapons.add(TGuns.boltaction);
-			weapons.add(TGuns.revolver);
-			weapons.add(TGuns.thompson);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 
 	public static void changeWeapon(ArrayList<Item> weapons){
-		Bandit.weapons = weapons;
+		ArmySoldier.weapons = weapons;
 	}
 	
 	@Override

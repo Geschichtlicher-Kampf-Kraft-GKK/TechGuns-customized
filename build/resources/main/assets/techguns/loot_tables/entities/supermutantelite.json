@@ -1,0 +1,100 @@
+{
+    "pools": [
+        {
+            "name": "food",
+            "rolls": 250,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/vegetable"
+                },
+                {
+                    "type": "loot_table",
+                    "weight": 2,
+                    "name": "techguns:tables/meat"
+                }
+            ]
+        },
+        {
+            "name": "ammo",
+            "rolls": 1000,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 2,
+                    "name": "techguns:tables/ammo"
+                },
+                {
+                    "type": "loot_table",
+                    "weight": 2,
+                    "name": "techguns:tables/magazin"
+                },
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/ammo_advanced"
+                },
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/explosives"
+                }
+            ]
+        },
+        {
+            "name": "resource",
+            "rolls": 250,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/resources"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "minecraft:potion",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{Potion: \"minecraft:water\"}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "weapon",
+            "rolls": {
+                "min": 10,
+                "max": 20
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "techguns:nucleardeathray"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "techguns:itemshared",
+                    "functions": [
+                        {
+                            "function": "set_data",
+                            "data": 117
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "pools": [
+        {
+			"name": "magazin",
+            "rolls": 1,
+            "entries": [
+				{
+                    "type": "item",
+                    "weight": 4,
+					"entryName": "smg_magazine",
+                    "name": "techguns:itemshared",
+                    "functions": [
+                        {
+                            "function": "set_data",
+                            "data": 9
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "weight": 6,
+					"entryName": "pistol_magazine",
+                    "name": "techguns:itemshared",
+                    "functions": [
+                        {
+                            "function": "set_data",
+                            "data": 11
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "weight": 2,
+					"entryName": "ar_magazine",
+                    "name": "techguns:itemshared",
+                    "functions": [
+                        {
+                            "function": "set_data",
+                            "data": 13
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

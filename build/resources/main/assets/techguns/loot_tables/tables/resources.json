@@ -1,0 +1,138 @@
+{
+  "pools": [
+    {
+      "name": "resources",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 2,
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "entryName": "ingotCopper",
+          "name": "techguns:itemshared",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 79
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "entryName": "ingotTin",
+          "name": "techguns:itemshared",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 80
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "entryName": "ingotLead",
+          "name": "techguns:itemshared",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 82
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "entryName": "plastic_sheet",
+          "name": "techguns:itemshared",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 55
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "entryName": "rubber_bar",
+          "name": "techguns:itemshared",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 56
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

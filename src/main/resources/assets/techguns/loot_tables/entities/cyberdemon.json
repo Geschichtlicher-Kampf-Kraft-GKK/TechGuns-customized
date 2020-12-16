@@ -1,0 +1,37 @@
+{
+    "pools": [
+        {
+            "name": "food",
+            "rolls": 5,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/meat"
+                }
+            ]
+        },
+        {
+            "name": "resource",
+            "rolls": 10,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/resources"
+                }
+            ]
+        },
+        {
+            "name": "special",
+            "rolls": 40,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "techguns:tables/ammo"
+                }
+            ]
+        }
+    ]
+}

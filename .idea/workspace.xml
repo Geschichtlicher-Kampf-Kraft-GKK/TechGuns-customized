@@ -7,8 +7,35 @@
     <list default="true" id="882376d5-e7d0-4815-9a3f-f60b3b47f0af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/lostcities/general.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/lostcities/general.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/splash.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/splash.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/6be062b2-d5f9-3e2d-be7e-7d0540b46d78.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/Village.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/Village.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player762.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/teams/singleplayer.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/teams/singleplayer.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/universe.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/universe.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/villages.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/villages.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/6be062b2-d5f9-3e2d-be7e-7d0540b46d78.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-3.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-3.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/6be062b2-d5f9-3e2d-be7e-7d0540b46d78.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usernamecache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usernamecache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/techguns/TGuns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/techguns/TGuns.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

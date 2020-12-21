@@ -90,10 +90,10 @@ public class SuperMutantElite extends SuperMutantBasic {
 	}
 
 	static int healthy = 1024;
-	static int damage = 10;
-	static double range = 128.0D;
-	static double speed = 0.3D;
-	static double armor = 16.0D;
+	static int damage = 0;
+	static double range = 32.0D;
+	static double speed = 0.005D;
+	static double armor = 20.0D;
 	static boolean ifFireProof = true;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){

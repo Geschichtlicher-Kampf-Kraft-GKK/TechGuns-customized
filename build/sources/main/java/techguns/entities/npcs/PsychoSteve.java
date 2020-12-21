@@ -41,12 +41,12 @@ public class PsychoSteve extends GenericNPC {
 		this.isImmuneToFire = PsychoSteve.ifFireProof;
 	}
 
-	static int healthy = 10;
-	static int damage = 1;
-	static double range = 32.0D;
-	static double speed = 0.6D;
+	static int healthy = 8;
+	static int damage = 0;
+	static double range = 16.0D;
+	static double speed = 0.5D;
 	static double armor = 0.0D;
-	static boolean ifFireProof = true;
+	static boolean ifFireProof = false;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
 		if(healthy > 0)PsychoSteve.healthy = healthy;

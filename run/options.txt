@@ -18,7 +18,7 @@ renderClouds:true
 resourcePacks:[]
 incompatibleResourcePacks:[]
 lastServer:
-lang:en_us
+lang:zh_cn
 chatVisibility:0
 chatColors:true
 chatLinks:true
@@ -85,6 +85,12 @@ key_key.hotbar.6:7
 key_key.hotbar.7:8
 key_key.hotbar.8:9
 key_key.hotbar.9:10
+key_Scene1 start/pause:79
+key_Scene2 start/pause:80
+key_Scene3 start/pause:81
+key_Scene reset:82
+key_Quest Log:38
+key_neat.keybind.toggle:0
 key_key.jei.toggleOverlay:24:CONTROL
 key_key.jei.focusSearch:33:CONTROL
 key_key.jei.toggleCheatMode:0
@@ -100,9 +106,27 @@ key_key.clipboardPaste:210
 key_techguns.key.toggleNightvision:49
 key_techguns.key.toggleSafemode:48
 key_techguns.key.toggleStepassist:47
-key_techguns.key.forceReload:19
+key_techguns.key.forceReload:0
 key_techguns.key.toggleJetpack:36
-soundCategory_master:0.5
+key_key.pitchDown.desc:29
+key_key.vehicleMenu.desc:50
+key_key.dropBomb.desc:48
+key_key.fireVehicleGuns.desc:47
+key_key.switchControlMode.desc:46
+key_key.reload.desc:19
+key_key.teamsMenu.desc:34
+key_key.teamsScores.desc:35
+key_key.rollLeft.desc:44
+key_key.rollRight.desc:45
+key_key.toggleLandingGear.desc:38
+key_key.toggleDoors.desc:37
+key_key.switchMovementMode.desc:36
+key_key.lookAtGun.desc:38
+key_key.debug.desc:68
+key_key.reloadModels.desc:67
+key_key.primaryVehicleInteract.desc:-100
+key_key.secondaryVehicleInteract.desc:-99
+soundCategory_master:0.0
 soundCategory_music:1.0
 soundCategory_record:1.0
 soundCategory_weather:1.0

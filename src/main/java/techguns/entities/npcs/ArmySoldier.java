@@ -38,11 +38,11 @@ public class ArmySoldier extends GenericNPC {
 		this.isImmuneToFire = ArmySoldier.ifFireProof;
 	}
 
-	static int healthy = 30;
-	static int damage = 1;
-	static double range = 64.0D;
-	static double speed = 0.35D;
-	static double armor = 0.0D;
+	static int healthy = 10;
+	static int damage = 0;
+	static double range = 32.0D;
+	static double speed = 0.2D;
+	static double armor = 1.0D;
 	static boolean ifFireProof = false;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){

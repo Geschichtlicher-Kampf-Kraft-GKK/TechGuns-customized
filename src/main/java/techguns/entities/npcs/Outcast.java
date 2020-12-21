@@ -35,11 +35,11 @@ public class Outcast extends GenericNPCGearSpecificStats {
 		this.isImmuneToFire = Outcast.ifFireProof;
 	}
 
-	static int healthy = 400;
-	static int damage = 1;
+	static int healthy = 30;
+	static int damage = 0;
 	static double range = 32.0D;
-	static double speed = 0.1D;
-	static double armor = 8.0D;
+	static double speed = 0.05D;
+	static double armor = 5.0D;
 	static boolean ifFireProof = true;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){

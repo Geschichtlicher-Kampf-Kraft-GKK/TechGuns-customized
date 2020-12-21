@@ -36,10 +36,10 @@ public class Bandit extends GenericNPC {
 		this.isImmuneToFire = Bandit.ifFireProof;
 	}
 
-	static int healthy = 20;
-	static int damage = 1;
+	static int healthy = 10;
+	static int damage = 0;
 	static double range = 32.0D;
-	static double speed = 0.3D;
+	static double speed = 0.2D;
 	static double armor = 0.0D;
 	static boolean ifFireProof = false;
 
@@ -63,9 +63,6 @@ public class Bandit extends GenericNPC {
 		Random r = new Random();
 		if(weapons.isEmpty()){
 			weapons.add(TGuns.ak47);
-			weapons.add(TGuns.pistol);
-			weapons.add(TGuns.combatshotgun);
-			weapons.add(TGuns.revolver);
 			weapons.add(TGuns.thompson);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));

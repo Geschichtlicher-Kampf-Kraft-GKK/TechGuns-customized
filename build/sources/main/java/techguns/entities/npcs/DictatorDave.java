@@ -40,11 +40,11 @@ public class DictatorDave extends GenericNPC {
 		this.isImmuneToFire = DictatorDave.ifFireProof;
 	}
 
-	static int healthy = 40;
-	static int damage = 20;
+	static int healthy = 20;
+	static int damage = 5;
 	static double range = 64.0D;
-	static double speed = 0.4D;
-	static double armor = 5.0D;
+	static double speed = 0.3D;
+	static double armor = 3.0D;
 	static boolean ifFireProof = true;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
@@ -72,9 +72,10 @@ public class DictatorDave extends GenericNPC {
 				// Weapons
 		Random r = new Random();
 		if(weapons.isEmpty()){
-			weapons.add(TGuns.goldenrevolver);
+			weapons.add(TGuns.mac10);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
+		this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}
 	
 	@Override

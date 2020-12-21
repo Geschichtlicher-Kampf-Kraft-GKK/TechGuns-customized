@@ -38,11 +38,11 @@ public class CyberDemon extends GenericNPCUndead {
 		this.isImmuneToFire = CyberDemon.ifFireProof;
 	}
 
-	static int healthy = 200;
-	static int damage = 1;
+	static int healthy = 50;
+	static int damage = 0;
 	static double range = 32.0D;
-	static double speed = 0.15D;
-	static double armor = 5.0D;
+	static double speed = 0.1D;
+	static double armor = 3.0D;
 	static boolean ifFireProof = true;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){
@@ -65,7 +65,7 @@ public class CyberDemon extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		if(weapons.isEmpty()){
-			weapons.add(TGuns.lmg);
+			weapons.add(TGuns.netherblaster);
 		}
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapons.get(r.nextInt(weapons.size()))));
 	}

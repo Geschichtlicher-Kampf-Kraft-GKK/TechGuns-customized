@@ -40,10 +40,10 @@ public class Commando extends GenericNPC {
 		this.isImmuneToFire = Commando.ifFireProof;
 	}
 
-	static int healthy = 40;
-	static int damage = 10;
+	static int healthy = 15;
+	static int damage = 0;
 	static double range = 128.0D;
-	static double speed = 0.3D;
+	static double speed = 0.2D;
 	static double armor = 0.0D;
 	static boolean ifFireProof = false;
 

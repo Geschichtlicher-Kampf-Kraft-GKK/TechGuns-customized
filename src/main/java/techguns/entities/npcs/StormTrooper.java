@@ -40,10 +40,10 @@ public class StormTrooper extends GenericNPCGearSpecificStats {
 		this.isImmuneToFire = StormTrooper.ifFireProof;
 	}
 
-	static int healthy = 40;
-	static int damage = 1;
-	static double range = 96.0D;
-	static double speed = 0.4D;
+	static int healthy = 15;
+	static int damage = 0;
+	static double range = 64.0D;
+	static double speed = 0.3D;
 	static double armor = 3.0D;
 	static boolean ifFireProof = true;
 

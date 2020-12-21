@@ -89,11 +89,11 @@ public class SuperMutantHeavy extends SuperMutantBasic {
 		this.isImmuneToFire = SuperMutantHeavy.ifFireProof;
 	}
 
-	static int healthy = 1024;
-	static int damage = 1;
-	static double range = 64.0D;
-	static double speed = 0.1D;
-	static double armor = 8.0D;
+	static int healthy = 64;
+	static int damage = 0;
+	static double range = 32.0D;
+	static double speed = 0.01D;
+	static double armor = 10.0D;
 	static boolean ifFireProof = true;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){

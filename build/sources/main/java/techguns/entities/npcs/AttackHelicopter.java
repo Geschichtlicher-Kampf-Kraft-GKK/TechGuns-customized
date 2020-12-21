@@ -112,10 +112,10 @@ public class AttackHelicopter extends GenericFlyingMob
         this.isImmuneToFire = AttackHelicopter.ifFireProof;
     }
 
-    static double armor_uni = 8.0D;
-    static int healthy = 400;
-    static double range = 256.0D;
-    static double armor = 8.0D;
+    static double armor_uni = 5.0D;
+    static int healthy = 200;
+    static double range = 128.0D;
+    static double armor = 5.0D;
     static boolean ifFireProof = true;
 
     public static void changeData(int healthy, double range, double armor_uni, double armor, boolean ifFireProof){
@@ -311,14 +311,14 @@ public class AttackHelicopter extends GenericFlyingMob
                 			TGPackets.network.sendToAllAround(new PacketPlaySound(TGSounds.HELICOPTER_BURST, this.parentEntity, 8.0f, 1.0f, false, false, TGSoundCategory.GUN_FIRE), TGPackets.targetPointAroundEnt(parentEntity, 256.0f));
                     	}
      
-                        GenericProjectile bullet = new GenericProjectile(this.parentEntity.world, this.parentEntity,15.0f, 3.0f, 256, 0.05f, 64, 128, 10.0f, 0.25f,true,EnumBulletFirePos.CENTER);
+                        GenericProjectile bullet = new GenericProjectile(this.parentEntity.world, this.parentEntity,15.0f, 3.0f, 256, 0.05f, 16, 128, 5.0f, 0.25f,true,EnumBulletFirePos.CENTER);
                         world.spawnEntity(bullet);
 
                     } else if (attackTimer == 35) {
                     	
 
                     	TGPackets.network.sendToAllAround(new PacketPlaySound(TGSounds.ROCKET_FIRE, this.parentEntity, 8.0f, 1.0f, false, false, TGSoundCategory.GUN_FIRE), TGPackets.targetPointAroundEnt(parentEntity, 100.0f));
-                	    RocketProjectile rocket = new RocketProjectile(this.parentEntity.world, this.parentEntity,100.0f, 1.0f, 512, 0.05f, 512, 512, 100.0f, 0.25f,true,this.parentEntity.rand.nextBoolean()?EnumBulletFirePos.LEFT:EnumBulletFirePos.RIGHT, 6.0f, 0.0f);
+                	    RocketProjectile rocket = new RocketProjectile(this.parentEntity.world, this.parentEntity,100.0f, 1.0f, 512, 0.05f, 32, 512, 20.0f, 0.25f,true,this.parentEntity.rand.nextBoolean()?EnumBulletFirePos.LEFT:EnumBulletFirePos.RIGHT, 6.0f, 0.0f);
                         world.spawnEntity(rocket);
                     	
                     	

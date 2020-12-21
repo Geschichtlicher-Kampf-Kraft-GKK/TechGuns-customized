@@ -102,11 +102,11 @@ public class SuperMutantBasic extends GenericNPC {
 		this.isImmuneToFire = SuperMutantBasic.ifFireProof;
 	}
 
-	static int healthy = 512;
-	static int damage = 1;
-	static double range = 64.0D;
-	static double speed = 0.05D;
-	static double armor = 8.0D;
+	static int healthy = 64;
+	static int damage = 0;
+	static double range = 32.0D;
+	static double speed = 0.01D;
+	static double armor = 5.0D;
 	static boolean ifFireProof = true;
 
 	public static void changeData(int healthy, int damage, double range, double speed, double armor, boolean ifFireProof){

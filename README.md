@@ -1,28 +1,7 @@
-# TechGuns-customized
+# Techguns2
 
-APIs:
-	#For this method entity "attackhelicopter" is not available.
-	mods.techguns.mob.setData(String name,
-							  int healthy,
-							  int damage,
-							  int range,
-							  int speed,
-							  int armor,
-							  int ifFireProof)
+1.12.2 Port/Rewrite of Techguns mod for Minecraft. WIP
 
-	mods.techguns.mob.setWeapon(String entity,
-								Item... weapons)
+Techguns 2 is still an early version and not well tested. Bugs may happen. Use at own risk.
 
-Entity Names:
-	bandit
-	armysoldier
-	cyberdemon
-	psychosteve
-	commando
-	stormtrooper
-	outcast
-	dictatordave
-	attackhelicopter
-	supermutantbasic
-	supermutantheavy
-	supermutantelite
+Mod Information: https://github.com/pWn3d1337/Techguns2/wiki
